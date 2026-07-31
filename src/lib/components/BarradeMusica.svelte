@@ -1,22 +1,18 @@
 <script lang="ts">
     import Icon from "@iconify/svelte";
-    import Tarjeta from "$lib/components/Tarjeta.svelte";
+    import { tracksContext } from '$lib/context/tracks.svelte.js';
 
-    interface PropTypes {
-        track: Track;
-    }
-    const { track }: PropTypes = $props();
 </script>
-
+{#if tracksContext.current}
 <div class="bg-white w-full h-16 rounded-3xl">
     <div class="p-2 my-6 bg-white rounded-3xl flex justify-between">
         <div class="flex items-center gap-4">
             <img
-                src={track.album.thumbnail}
+                src={tracksContext.current.album.thumbnail}
                 alt=""
                 class="w-30 h-30 rounded-3xl p-2"
             />
-            <p class="font-bold text-xl">{track.title}</p>
+            <p class="font-bold text-xl">{tracksContext.current.title}</p>
         </div>
 
         <div class="flex items-center justify-center gap-4">
@@ -26,7 +22,7 @@
             </div>
             <Icon icon="fluent:next-20-regular" width="35px" />
         </div>
-
-        <div></div>
     </div>
 </div>
+    
+{/if}

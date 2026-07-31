@@ -9,7 +9,11 @@
 
 <section class="px-40 py-12">
     <div class="space-y-1">
-        <p class="text-3xl font-bold">Trending Now</p>
+        <p class="text-3xl font-bold">
+            {#if tracksContext.current}
+                {tracksContext.current.title}
+            {/if}
+        </p>
         <p class="text-lg">
             Curated sounds for your digital sanctuary. Pure, effortless, and
             serene.
@@ -25,6 +29,6 @@
     </div>
 
     <div> 
-           <BarradeMusica track={data.tracks[0]} />       
+        <BarradeMusica />       
     </div>
 </section>

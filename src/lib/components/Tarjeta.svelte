@@ -6,10 +6,14 @@
         track: Track;
     }
     const { track }: PropTypes = $props();
+
+    const handlerClick = () => {
+        actualizarCancionActual(track)
+    }
 </script>
 
 
-<button>
+<button onclick={handlerClick}>
 <div class="p-2 my-6 bg-white rounded-3xl flex">
     <div>
         <img
